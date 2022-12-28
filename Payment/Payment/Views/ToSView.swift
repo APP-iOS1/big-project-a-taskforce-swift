@@ -12,9 +12,9 @@ import SwiftUI
 
 struct ToSView: View {
     
-    // State 변수
+    // Binding 변수
     /// isCheck: 약관동의가 되었는지 여부를 나타내는 Boolean 값
-    @State private var isCheck: Bool = false
+    @Binding var isCheck: Bool
     
     var body: some View {
         VStack {
@@ -68,7 +68,7 @@ struct ToSView: View {
 struct ToSView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            ToSView()
+            ToSView(isCheck: .constant(false))
         }
     }
 }

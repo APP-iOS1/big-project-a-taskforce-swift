@@ -19,15 +19,41 @@ struct PaymentView: View {
     /// textAppear: 은행을 선택했을 때만 아래에 결제 정보들을 보여주게끔 하게 해주는 Bool값
     /// (true -> 보여줌, false -> 보여주지 않음)
     /// selectedBank: 은행 목록에서 선택된 은행을 구별하기 위해 사용한 Bank 객체
+    /// incomeDeduction: 소득공제 방식 정보를 담은 String 값
+    /// cashReceiptNumber: 현금영수증 전화번호 입력 칸에 입력된 전화번호
     /// isCopied: 계좌번호가 클립보드에 복사됐는지 여부를 담은 Boolean 값
+    /// isCheck: 약관동의가 되었는지 여부를 나타내는 Boolean 값
+    /// isCashCheck: 현금영수증 신청 여부를 나타내는 Boolean 값
     
     @State var bank: String = ""
     @State var accountNum: String = ""
     @State var textAppear: Bool = false
     @State var selectedBank: Bank = Bank(name: "", account: "", bankImage: "")
-    @State var isCopied: Bool = false
-    @State private var incomeDeduction: String = "소득공제 번호(휴대폰 번호)"
+    @State var incomeDeduction: String = "소득공제 번호(휴대폰 번호)"
     @State var cashReceiptNumber: String = ""
+    @State var isCopied: Bool = false
+    @State var isCheck: Bool = false
+    @State var isCashCheck: Bool = false
+    
+    
+    /// Compute Property
+    /// 1. 결제은행 미선택
+    /// 2. 필수 약관 비동의
+    /// 3. 현금영수증 신청했으나 전화번호 미입력
+
+    /// 위 조건 중 하나라도 충족이 안된다면 결제완료 버튼을 누를 수 없는 상태임을 알려줌
+    var canTab: Bool {
+        if bank == "" {
+            return false
+        } else if !isCheck {
+            return false
+        } else if isCashCheck && cashReceiptNumber == "" {
+            return false
+        } else {
+            return true
+        }
+    }
+    
     
     // 외부로부터 필요한 변수
     /// 유저 정보 -> 핸드폰번호, 배송지정보, 소비자명, 입금자명
@@ -121,8 +147,8 @@ struct PaymentView: View {
                                 Text("예금주: 멋사전자")
                                 
                                 /// 약관 동의 뷰와 현금영수증 설정 뷰가 위에서부터 차례로 불러와짐
-                                ToSView()
-                                CashRecieptView(incomeDeduction: $incomeDeduction, cashReceiptNumber: $cashReceiptNumber, purchaseInfo: $purchaseInfo)
+                                ToSView(isCheck: $isCheck)
+                                CashRecieptView(isCashCheck: $isCashCheck, incomeDeduction: $incomeDeduction, cashReceiptNumber: $cashReceiptNumber, purchaseInfo: $purchaseInfo)
                             }
                         }
                     }
@@ -166,20 +192,22 @@ struct PaymentView: View {
                 
                 /// NavigationLink이 보여지는 문구를 "결제하기"로 설정
                 /// 여기서 현재 PurchaseInfo를 파이어스토어에 전달.
-                Text("결제하기")
-                    .foregroundColor(.white)
-                    .font(.title3)
-                    .fontWeight(.bold)
+                RoundedRectangle(cornerRadius: 20)
+                    /// 결제완료 버튼을 누를 수 있는 조건이 충족되면 파란색 아니면 회색으로 색깔을 채움
+                    .fill(canTab ? Color.blue : Color.gray) 
+                    .frame(width: 380, height: 60)
                 
                 /// NavigationLink를 푸른색 둥근 사각형위에 얹어줌
-                    .background {
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(Color.blue)
-                            .frame(width: 380, height: 60)
+                    .overlay {
+                        Text("결제하기")
+                            .foregroundColor(.white)
+                            .font(.title3)
+                            .fontWeight(.bold)
                     }
                     
             }
-          
+            /// 결제완료 버튼을 누를 수 있는 조건이 충족되지 않으면 disabled 처리
+            .disabled(canTab)
             .padding(20)
         }
     }
