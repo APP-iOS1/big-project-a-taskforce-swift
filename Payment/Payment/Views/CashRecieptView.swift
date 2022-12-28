@@ -2,7 +2,7 @@
 //  CashRecieptView.swift
 //  Payment
 //
-//  Created by Donghoon Bae on 2022/12/28.
+//  Created by 박성.._1 on 2022/12/28.
 //
 
 import SwiftUI
