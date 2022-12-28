@@ -9,12 +9,10 @@ import SwiftUI
 
 struct CashRecieptView: View {
     @State private var isCheck: Bool = false
-    @State private var isCheckSo: Bool = true
-    @State private var isCheckJi: Bool = false
     @State private var isCheckExpenditure: Bool = false
     @State private var incomeDeduction: String = "휴대폰번호"
     @State var phoneNumber: String = ""
-    var incomDeductions: [String] = ["휴대폰번호", "사업자번호"]
+    var incomDeductions: [String] = ["소득공제 번호(휴대폰 번호)", "지출증빙 번호(사업자 번호)"]
     
     
     var body: some View {
@@ -35,27 +33,6 @@ struct CashRecieptView: View {
             }
             
             if isCheck {
-                HStack {
-                    HStack {
-                        Button {
-                            isCheckSo = true
-                            isCheckJi = false
-                        } label: {
-                            Image(systemName: isCheckSo ? "checkmark.circle.fill" : "circle")
-                        }
-                        Text("소득공제")
-                    }
-                    HStack {
-                        Button {
-                            isCheckJi = true
-                            isCheckSo = false
-                        } label: {
-                            Image(systemName: isCheckJi ? "checkmark.circle.fill" : "circle")
-                        }
-                        Text("지출증빙")
-                    }
-                    Spacer()
-                }
                 VStack(alignment: .leading) {
                     Picker("incom deduction", selection: $incomeDeduction) {
                         ForEach(incomDeductions, id: \.self) { item in
