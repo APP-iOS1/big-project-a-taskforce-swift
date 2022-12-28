@@ -32,7 +32,7 @@ struct PaymentCompleteView: View {
                                     VStack(alignment: .leading) {
                                         PaymentInfoView(keyInfo: "입금하실 금액", valueInfo: "250,000")
                                         PaymentInfoView(keyInfo: "예금주 명", valueInfo: "TF")
-                                        PaymentInfoView(keyInfo: "입금 기한", valueInfo: "\(Date().adding(hours: 3))")
+                                        PaymentInfoView(keyInfo: "입금 기한", valueInfo: "\(Date().plusAdding(hours: 3))")
                                     }
                                 }
                                 Spacer()
@@ -77,6 +77,13 @@ extension Date {
     
     func adding(hours: Int) -> Date {
         Calendar.current.date(byAdding: .hour, value: hours, to: self)!
+    }
+    
+    func plusAdding(hours: Int) -> Date {
+        var formatter_time = DateFormatter()
+        formatter_time.dateFormat = "HH"
+        var current_time_string = formatter_time.string(from: Date())
+        return Calendar.current.date(byAdding: .hour, value: Int(current_time_string)! + hours, to: self)!
     }
 }
 
