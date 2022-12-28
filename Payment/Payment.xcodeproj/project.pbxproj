@@ -13,8 +13,6 @@
 		6332821E295AB9C300265898 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6332821D295AB9C300265898 /* Preview Assets.xcassets */; };
 		63328225295ABAF200265898 /* ReadyToPayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63328224295ABAF200265898 /* ReadyToPayView.swift */; };
 		63328227295ABBDE00265898 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63328226295ABBDE00265898 /* PaymentView.swift */; };
-		63328229295ABBE900265898 /* ToSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63328228295ABBE900265898 /* ToSView.swift */; };
-		6332822B295ABC0500265898 /* CashReceiptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6332822A295ABC0500265898 /* CashReceiptView.swift */; };
 		6332822E295AC5CA00265898 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6332822D295AC5CA00265898 /* Bank.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,8 +24,6 @@
 		6332821D295AB9C300265898 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		63328224295ABAF200265898 /* ReadyToPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyToPayView.swift; sourceTree = "<group>"; };
 		63328226295ABBDE00265898 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
-		63328228295ABBE900265898 /* ToSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToSView.swift; sourceTree = "<group>"; };
-		6332822A295ABC0500265898 /* CashReceiptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashReceiptView.swift; sourceTree = "<group>"; };
 		6332822D295AC5CA00265898 /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,8 +80,6 @@
 				63328218295AB9C200265898 /* ContentView.swift */,
 				63328224295ABAF200265898 /* ReadyToPayView.swift */,
 				63328226295ABBDE00265898 /* PaymentView.swift */,
-				63328228295ABBE900265898 /* ToSView.swift */,
-				6332822A295ABC0500265898 /* CashReceiptView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -170,9 +164,7 @@
 			files = (
 				63328219295AB9C200265898 /* ContentView.swift in Sources */,
 				63328227295ABBDE00265898 /* PaymentView.swift in Sources */,
-				6332822B295ABC0500265898 /* CashReceiptView.swift in Sources */,
 				63328225295ABAF200265898 /* ReadyToPayView.swift in Sources */,
-				63328229295ABBE900265898 /* ToSView.swift in Sources */,
 				63328217295AB9C200265898 /* PaymentApp.swift in Sources */,
 				6332822E295AC5CA00265898 /* Bank.swift in Sources */,
 			);
