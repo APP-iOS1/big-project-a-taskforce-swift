@@ -81,8 +81,9 @@ struct PaymentView: View {
                         
                         Spacer().frame(height: 100)
                         
-                        Button(action: {
-                            
+                        
+                        NavigationLink(destination: {
+                            PaymentCompleteView()
                         }){
                             Text("결제하기")
                                 .foregroundColor(.white)
