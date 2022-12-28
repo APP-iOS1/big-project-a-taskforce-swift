@@ -7,18 +7,25 @@
 
 import SwiftUI
 
+// MARK: ToSView
+/// 약관동의여부를 체크하고 내용을 볼 수 있는 뷰
 
 struct ToSView: View {
+    
+    // State 변수
+    /// isCheck: 약관동의가 되었는지 여부를 나타내는 Boolean 값
     @State private var isCheck: Bool = false
-    @State private var isOpened: Bool = true
     
     var body: some View {
         VStack {
             VStack {
                 HStack {
+                    //약관 항목들을 DisclosureGroup으로 숨길 수 있게 함
                     DisclosureGroup {
+                        //약관 항목의 텍스트를 클릭하면 약관의 세부내용이 적힌 뷰로 이동
                             NavigationLink {
                                 ScrollView {
+                                    //약관 세부내용 (임시로 더미값 투입)
                                     Text("""
 바이며, 방황하여도, 구하지 것이 노년에게서 보배를 쓸쓸하랴? 것이다.보라, 않는 목숨을 대한 구하기 고행을 열매를 얼마나 있는가? 공자는 내려온 그들의 인간의 꽃 있는 것이다. 품에 눈이 황금시대를 인생의 실로 따뜻한 것이다. 어디 보이는 얼음과 없는 생의 피고 청춘 칼이다. 무엇을 천고에 이것이야말로 말이다. 얼마나 그것을 황금시대를 지혜는 설산에서 고동을 희망의 청춘 힘있다. 갑 가는 가슴이 같지 그것은 용기가 황금시대를 황금시대의 이것이다. 새가 얼마나 것이다.보라, 밥을 아니다.
 
@@ -28,6 +35,7 @@ struct ToSView: View {
 """)
                                 }
                             } label: {
+                                //약관 항목들을 세로로 나열
                                 HStack {
                                     VStack(alignment: .leading) {
                                         Text("서비스 이용약관")
@@ -40,23 +48,20 @@ struct ToSView: View {
                             }
                         
                     } label: {
+                        //필수 약관들에 모두 동의하는지 여부를 표시하는 체크박스
+                        
+                        //체크박스 버튼을 누르면 isCheck 값이 toggle됨
                         Button {
                             isCheck.toggle()
                         } label: {
                             Image(systemName: isCheck ? "checkmark.square.fill" : "square")
                         }
                         Text("필수 약관 모두 동의")
-                        
                     }
                 }
             }
-            Spacer()
-            
+            Spacer()   
         }.padding(.horizontal)
-    }
-    
-    func clipboardData(_ message: String) {
-        UIPasteboard.general.setValue(message, forPasteboardType: "public.plain-text")
     }
 }
 
