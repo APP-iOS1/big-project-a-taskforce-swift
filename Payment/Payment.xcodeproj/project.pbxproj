@@ -23,7 +23,6 @@
 		1678B7E1295AD5D700A44427 /* PaymentCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCompleteView.swift; sourceTree = "<group>"; };
 		1678B7E7295BE66B00A44427 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1678B7EA295BE67D00A44427 /* Bank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
-		63328213295AB9C200265898 /* Payment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Payment.app; path = "/Users/yst/likelion/git/big-project-a-taskforce-swift/Payment/build/Debug-iphoneos/Payment.app"; sourceTree = "<absolute>"; };
 		63328216295AB9C200265898 /* PaymentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentApp.swift; sourceTree = "<group>"; };
 		63328218295AB9C200265898 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6332821D295AB9C300265898 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -31,6 +30,7 @@
 		63328226295ABBDE00265898 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		63793ED7295BCC7C005F0802 /* ToSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToSView.swift; sourceTree = "<group>"; };
 		63793ED9295BCCAD005F0802 /* CashRecieptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashRecieptView.swift; sourceTree = "<group>"; };
+		F4FAAB3D295BFFF60008F144 /* Payment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Payment.app; path = "/Users/gim-eung-gwan/big-project-a-taskforce-swift/Payment/build/Debug-iphoneos/Payment.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +109,7 @@
 			);
 			name = Payment;
 			productName = Payment;
-			productReference = 63328213295AB9C200265898 /* Payment.app */;
+			productReference = F4FAAB3D295BFFF60008F144 /* Payment.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
