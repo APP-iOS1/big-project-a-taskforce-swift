@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CashRecieptView: View {
     @Binding var isCashCheck: Bool
-    @State private var isCheckExpenditure: Bool = false
+    @Binding var isCheckExpenditure: Bool
     @Binding var incomeDeduction: String
     @Binding var cashReceiptNumber: String
     var incomDeductions: [String] = ["소득공제 번호(휴대폰 번호)", "지출증빙 번호(사업자 번호)"]
@@ -71,6 +71,6 @@ struct CashRecieptView: View {
 
 struct CashRecieptView_Previews: PreviewProvider {
     static var previews: some View {
-        CashRecieptView(isCashCheck: Binding.constant(false), incomeDeduction: Binding.constant("소득공제 번호(휴대폰 번호)"), cashReceiptNumber: Binding.constant("010XXXXXXXX"), purchaseInfo: Binding.constant(PurchaseInfo(id: UUID().uuidString, userName: "박성민_1", userPhoneNumber: "010-XXXX-XXXX", depositorName: "박성민", recipient: Recipient(name: "박성민", phoneNumber: "010-XXXX-XXXX", adress: "서울시 중랑구 묵동 xxx-xxx", requestedTerm: "집 문앞에 놔주세요"), marketBasket: MarketBasket(id: UUID().uuidString, basketProducts: ["매직마우스", "애플워치", "에어팟맥스"]), payment: "150,000원", cashReceipt: CashReceipt(id: UUID().uuidString, incomDeduction: "소득공제정보", cashReceiptNumber: "현금영수증번호"), bankName: "신한은행")))
+        CashRecieptView(isCashCheck: Binding.constant(false), isCheckExpenditure: Binding.constant(false), incomeDeduction: Binding.constant("소득공제 번호(휴대폰 번호)"), cashReceiptNumber: Binding.constant("010XXXXXXXX"), purchaseInfo: Binding.constant(PurchaseInfo(id: UUID().uuidString, userName: "박성민_1", userPhoneNumber: "010-XXXX-XXXX", depositorName: "박성민", recipient: Recipient(name: "박성민", phoneNumber: "010-XXXX-XXXX", adress: "서울시 중랑구 묵동 xxx-xxx", requestedTerm: "집 문앞에 놔주세요"), marketBasket: MarketBasket(id: UUID().uuidString, basketProducts: ["매직마우스", "애플워치", "에어팟맥스"]), payment: "150,000원", cashReceipt: CashReceipt(id: UUID().uuidString, incomDeduction: "소득공제정보", cashReceiptNumber: "현금영수증번호"), bankName: "신한은행")))
     }
 }
