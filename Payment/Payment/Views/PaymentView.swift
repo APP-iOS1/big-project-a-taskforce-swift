@@ -60,6 +60,7 @@ struct PaymentView: View {
                         LazyVGrid(columns: columns, spacing: 20) {
                             ForEach(banks, id:\.id) { item in
                                 Button(action: {
+                                    bank = item.name
                                     accountNum = item.account
                                     textAppear = true
                                     selectedBank = item
