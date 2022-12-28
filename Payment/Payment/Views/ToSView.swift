@@ -13,13 +13,6 @@ struct ToSView: View {
     
     var body: some View {
         VStack {
-            Spacer()
-            NavigationLink {
-                CashRecieptView()
-            } label: {
-                Text("현금 영수증 신청")
-            }
-            
             VStack {
                 HStack {
                     DisclosureGroup {
@@ -55,12 +48,6 @@ struct ToSView: View {
                         
                     }
                 }
-            }
-            Spacer()
-            NavigationLink {
-                
-            } label: {
-                Text("결제하기")
             }
             Spacer()
             

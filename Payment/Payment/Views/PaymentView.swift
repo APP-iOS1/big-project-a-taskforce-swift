@@ -13,10 +13,11 @@ import SwiftUI
 
 struct PaymentView: View {
     
-    @State var bank: String = "은행을 선택해주세요"
+    @State var bank: String = ""
     @State var accountNum: String = ""
     @State var btnAppear: Bool = false
     @State var textAppear: Bool = false
+    @State var selectedBank: Bank = Bank(name: "", account: "", bankImage: "")
     
     let columns = [
         GridItem(.adaptive(minimum: 100))
@@ -31,7 +32,7 @@ struct PaymentView: View {
                         textAppear = false
                     }){
                         HStack {
-                            Text("\(bank)")
+                            Text("은행을 선택해주세요")
                                 .font(.headline)
                                 .foregroundColor(.gray)
                                 .background {
@@ -40,22 +41,20 @@ struct PaymentView: View {
                                         .frame(width: 370, height: 30)
                                         .border(Color.gray, width: 1)
                                 }
-                            Image(systemName: "chevron.down")
-                                .foregroundColor(.gray)
                         }
                         .padding(.leading)
                     }
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(banks, id:\.id) { item in
                             Button(action: {
-                                bank = item.name
                                 accountNum = item.account
                                 btnAppear.toggle()
                                 textAppear = true
+                                selectedBank = item
                             }){
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 20)
-                                        .fill(Color.gray)
+                                        .fill(selectedBank.name == item.name ? Color.blue : Color.clear)
                                     VStack {
                                         Image("\(item.bankImage)")
                                             .resizable()
@@ -70,7 +69,6 @@ struct PaymentView: View {
                         }
                     }
                     .padding(.horizontal)
-                    .opacity(btnAppear ? 1 : 0)
                     
                     if textAppear {
                         VStack {
@@ -82,25 +80,25 @@ struct PaymentView: View {
                             
                             ToSView()
                             CashRecieptView()
-                            
-                            NavigationLink(destination: {
-                                PaymentCompleteView()
-                            }){
-                                Text("결제하기")
-                                    .foregroundColor(.white)
-                                    .font(.title3)
-                                    .fontWeight(.bold)
-                                    .background {
-                                        RoundedRectangle(cornerRadius: 20)
-                                            .fill(Color.purple)
-                                            .frame(width: 380, height: 60)
-                                    }
-                            }
                         }
                     }
                 }
-                .navigationTitle("은행선택")
+                .navigationTitle("무통장 입금")
             }
+            NavigationLink(destination: {
+                PaymentCompleteView()
+            }){
+                Text("결제하기")
+                    .foregroundColor(.white)
+                    .font(.title3)
+                    .fontWeight(.bold)
+                    .background {
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(Color.blue)
+                            .frame(width: 380, height: 60)
+                    }
+            }
+            .padding(20)
         }
     }
 }

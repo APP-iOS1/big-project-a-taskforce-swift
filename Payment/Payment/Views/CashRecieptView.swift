@@ -22,7 +22,6 @@ struct CashRecieptView: View {
         ScrollView {
             HStack {
                 VStack(alignment: .leading ) {
-                    Text("현금영수증")
                     HStack {
                         Button {
                             isCheck.toggle()
@@ -76,11 +75,6 @@ struct CashRecieptView: View {
                     Text("현금영수증 발급을 위하여 휴대폰번호 또는 현금 영수증카드번호를 수집하며, 5년간 처리에 동의합니다.")
                 }
                 
-                Button {
-                    print("몰?루")
-                } label: {
-                    Text("등록")
-                }
             } else {
                 
             }
