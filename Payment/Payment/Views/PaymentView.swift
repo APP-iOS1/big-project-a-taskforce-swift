@@ -27,23 +27,20 @@ struct PaymentView: View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    Button(action: {
-                        btnAppear.toggle()
-                        textAppear = false
-                    }){
-                        HStack {
-                            Text("은행을 선택해주세요")
-                                .font(.headline)
-                                .foregroundColor(.gray)
-                                .background {
-                                    Rectangle()
-                                        .fill(Color.white)
-                                        .frame(width: 370, height: 30)
-                                        .border(Color.gray, width: 1)
-                                }
-                        }
-                        .padding(.leading)
+                    
+                    HStack {
+                        Text("은행을 선택해주세요")
+                            .font(.headline)
+                            .foregroundColor(.gray)
+                            .background {
+                                Rectangle()
+                                    .fill(Color.white)
+                                    .frame(width: 370, height: 30)
+                                    .border(Color.gray, width: 1)
+                            }
                     }
+                    .padding(.leading)
+                    
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(banks, id:\.id) { item in
                             Button(action: {
