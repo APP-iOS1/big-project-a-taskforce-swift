@@ -31,9 +31,8 @@
 		63328226295ABBDE00265898 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		63793ED7295BCC7C005F0802 /* ToSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToSView.swift; sourceTree = "<group>"; };
 		63793ED9295BCCAD005F0802 /* CashRecieptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashRecieptView.swift; sourceTree = "<group>"; };
-
-		F4FAAB3E295C2AB20008F144 /* Payment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Payment.app; path = "/Users/gim-eung-gwan/big-project-a-taskforce-swift/Payment/build/Debug-iphoneos/Payment.app"; sourceTree = "<absolute>"; };
 		AD88F229295C135500588FE8 /* PurchaseInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseInfo.swift; sourceTree = "<group>"; };
+		F4FAAB40295C2E1D0008F144 /* Payment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Payment.app; path = "/Users/gim-eung-gwan/big-project-a-taskforce-swift/Payment/build/Debug-iphoneos/Payment.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +59,6 @@
 			isa = PBXGroup;
 			children = (
 				63328215295AB9C200265898 /* Payment */,
-				AD88F228295C106400588FE8 /* Payment.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,7 +112,7 @@
 			);
 			name = Payment;
 			productName = Payment;
-			productReference = F4FAAB3E295C2AB20008F144 /* Payment.app */;
+			productReference = F4FAAB40295C2E1D0008F144 /* Payment.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */

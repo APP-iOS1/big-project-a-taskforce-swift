@@ -33,6 +33,7 @@ struct PaymentView: View {
     /// 유저 정보 -> 핸드폰번호, 배송지정보, 소비자명, 입금자명
     /// 장바구니 정보 -> 결제금액, 상품정보
     
+    
     //임의의 소비자 정보
     //전달받은 소비자 정보
     @Binding var purchaseInfo: PurchaseInfo

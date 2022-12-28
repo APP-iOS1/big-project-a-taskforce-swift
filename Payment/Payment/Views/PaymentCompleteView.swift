@@ -19,7 +19,6 @@ struct PaymentCompleteView: View {
                 VStack {
                     
                     VStack(spacing: 10) {
-                        Spacer()
                         Text("주문완료")
                             .font(.title)
                         Text("주문 번호: XXXXXXXXXX")
