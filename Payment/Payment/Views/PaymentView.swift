@@ -29,11 +29,16 @@ struct PaymentView: View {
     /// 유저 정보 -> 핸드폰번호, 배송지정보, 소비자명, 입금자명
     /// 장바구니 정보 -> 결제금액, 상품정보
     
+    //임의의 소비자 정보
+    //전달받은 소비자 정보
+    var purchaseInfo: PurchaseInfo
+    
     
     /// LazyVGrid로 은행목록을 보여주기 위한 column 파라미터 값을 설정
     let columns = [
         GridItem(.adaptive(minimum: 100))
     ]
+    
     
     var body: some View {
         NavigationStack {
@@ -137,6 +142,6 @@ struct PaymentView: View {
 
 struct PaymentView_Previews: PreviewProvider {
     static var previews: some View {
-        PaymentView()
+        PaymentView(purchaseInfo: PurchaseInfo(id: UUID().uuidString, userName: "박성민_1", userPhoneNumber: "010-XXXX-XXXX", depositorName: "박성민", recipient: Recipient(name: "박성민", phoneNumber: "010-XXXX-XXXX", adress: "서울시 중랑구 묵동 xxx-xxx", requestedTerm: "집 문앞에 놔주세요"), marketBasket: MarketBasket(id: UUID().uuidString, basketProducts: ["매직마우스", "애플워치", "에어팟맥스"]), payment: "150,000", cashReceipt: "XXX-XXX-XXXX", bankName: ""))
     }
 }

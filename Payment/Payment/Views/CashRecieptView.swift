@@ -11,10 +11,10 @@ struct CashRecieptView: View {
     @State private var isCheck: Bool = false
     @State private var isCheckSo: Bool = true
     @State private var isCheckJi: Bool = false
-    @State private var isCheckSub: Bool = false
+    @State private var isCheckExpenditure: Bool = false
     @State private var incomeDeduction: String = "휴대폰번호"
     @State var phoneNumber: String = ""
-    var incomDeduction: [String] = ["휴대폰번호", "사업자번호"]
+    var incomDeductions: [String] = ["휴대폰번호", "사업자번호"]
     
     
     var body: some View {
@@ -58,7 +58,7 @@ struct CashRecieptView: View {
                 }
                 VStack(alignment: .leading) {
                     Picker("incom deduction", selection: $incomeDeduction) {
-                        ForEach(incomDeduction, id: \.self) { item in
+                        ForEach(incomDeductions, id: \.self) { item in
                             Text("\(item)")
                         }
                     }
@@ -68,9 +68,9 @@ struct CashRecieptView: View {
                 
                 HStack(alignment: .top) {
                     Button {
-                        isCheckSub.toggle()
+                        isCheckExpenditure.toggle()
                     } label: {
-                        Image(systemName: isCheckSub ? "checkmark.square.fill" : "square")
+                        Image(systemName: isCheckExpenditure ? "checkmark.square.fill" : "square")
                     }
                     Text("현금영수증 발급을 위하여 휴대폰번호 또는 현금 영수증카드번호를 수집하며, 5년간 처리에 동의합니다.")
                 }

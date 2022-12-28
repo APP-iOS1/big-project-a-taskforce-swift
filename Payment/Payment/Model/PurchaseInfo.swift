@@ -32,7 +32,7 @@ struct PurchaseInfo {
     let payment: String
 
     //현금영수증
-    let cashReceipt : String
+    let cashReceipt : CashReceipt
     
     //은행이름
     let bankName : String
@@ -64,5 +64,21 @@ struct MarketBasket {
     //장바구니 상품들
     
     let basketProducts: [String]
+    
+}
+
+// MARK: CashReceipt
+/// 현금영수증 정보입니다.
+
+struct CashReceipt {
+    
+    let id: String
+    
+    //소득공제정보
+    let incomDeduction: String
+    
+    //현금영수증 번호
+    let cashReceiptNumber: String
+    
     
 }
