@@ -11,7 +11,7 @@ struct PaymentCompleteView: View {
     var body: some View {
         VStack {
             ZStack {
-                Color(.lightGray)
+                Color(.systemFill)
                     .ignoresSafeArea()
                 VStack {
                     
@@ -23,16 +23,19 @@ struct PaymentCompleteView: View {
                         Text("아래 가상계좌로 입금해주시면 정상적으로 결제 완료처리가 됩니다.")
                             .opacity(0.7)
                             .multilineTextAlignment(.center)
-                        Spacer()
-                        Text("가상 계좌 정보")
+                        Divider()
+                        HStack {
+                            Text("가상 계좌 정보")
+                            Spacer()
+                        }
                         VStack {
                             ZStack {
-                                Color(.gray)
+                                Color(.systemFill)
                                 VStack(alignment: .leading) {
                                     VStack(alignment: .leading) {
                                         PaymentInfoView(keyInfo: "입금하실 금액", valueInfo: "250,000")
                                         PaymentInfoView(keyInfo: "예금주 명", valueInfo: "TF")
-                                        PaymentInfoView(keyInfo: "입금 기한", valueInfo: "\(Date().adding(hours: 3))")
+                                        PaymentInfoView(keyInfo: "입금 기한", valueInfo: "\(Date().plusAdding(hours: 3))")
                                     }
                                 }
                                 Spacer()
@@ -40,7 +43,6 @@ struct PaymentCompleteView: View {
                             Button("마이 페이지") {
                                 print("마이페이지로 가자!")
                             }
-                            Spacer()
                         }
                         .frame(height: 300)
                         Spacer()
@@ -58,10 +60,13 @@ struct PaymentInfoView: View {
     
     var body: some View {
         ZStack(alignment:.leading) {
-            VStack(alignment:.leading) {
-                Text("\(keyInfo)")
-                    .font(.title2)
-                Text("- \(valueInfo)")
+            HStack {
+                VStack(alignment:.leading) {
+                    Text("\(keyInfo)")
+                        .font(.title2)
+                    Text("- \(valueInfo)")
+                }
+                Spacer()
             }
             
         }
@@ -77,6 +82,13 @@ extension Date {
     
     func adding(hours: Int) -> Date {
         Calendar.current.date(byAdding: .hour, value: hours, to: self)!
+    }
+    
+    func plusAdding(hours: Int) -> Date {
+        var formatter_time = DateFormatter()
+        formatter_time.dateFormat = "HH"
+        var current_time_string = formatter_time.string(from: Date())
+        return Calendar.current.date(byAdding: .hour, value: Int(current_time_string)! + hours, to: self)!
     }
 }
 
