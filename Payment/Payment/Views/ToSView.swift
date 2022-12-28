@@ -52,7 +52,7 @@ struct ToSView: View {
             }
             Spacer()
             
-        }.padding()
+        }.padding(.horizontal)
     }
     
     func clipboardData(_ message: String) {

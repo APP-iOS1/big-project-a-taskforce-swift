@@ -87,11 +87,11 @@
 			isa = PBXGroup;
 			children = (
 				63328218295AB9C200265898 /* ContentView.swift */,
-				1678B7E1295AD5D700A44427 /* PaymentCompleteView.swift */,
 				63328224295ABAF200265898 /* ReadyToPayView.swift */,
 				63328226295ABBDE00265898 /* PaymentView.swift */,
 				63793ED7295BCC7C005F0802 /* ToSView.swift */,
 				63793ED9295BCCAD005F0802 /* CashRecieptView.swift */,
+				1678B7E1295AD5D700A44427 /* PaymentCompleteView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

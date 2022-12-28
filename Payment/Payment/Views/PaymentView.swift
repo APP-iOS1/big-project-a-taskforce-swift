@@ -24,6 +24,8 @@ struct PaymentView: View {
     @State var accountNum: String = ""
     @State var textAppear: Bool = false
     @State var selectedBank: Bank = Bank(name: "", account: "", bankImage: "")
+    @State private var incomeDeduction: String = "소득공제 번호(휴대폰 번호)"
+    @State var cashReceiptNumber: String = ""
     
     // 외부로부터 필요한 변수
     /// 유저 정보 -> 핸드폰번호, 배송지정보, 소비자명, 입금자명
@@ -31,7 +33,7 @@ struct PaymentView: View {
     
     //임의의 소비자 정보
     //전달받은 소비자 정보
-    var purchaseInfo: PurchaseInfo
+    @Binding var purchaseInfo: PurchaseInfo
     
     
     /// LazyVGrid로 은행목록을 보여주기 위한 column 파라미터 값을 설정
@@ -65,6 +67,8 @@ struct PaymentView: View {
                                 accountNum = item.account
                                 textAppear = true
                                 selectedBank = item
+                                // 전해받은 구조체 변수의 프로퍼티 변경
+                                self.purchaseInfo.bankName = selectedBank.name
                             }){
                                 
                                 /// 은행 버튼 모양을 둥근사각형으로 설정
@@ -98,7 +102,8 @@ struct PaymentView: View {
                         ///위에서부터
                         ///결제금액, 선택된 은행명과 계좌번호, 예금주 순으로 결제정보가 나타남
                         VStack {
-                            Text("55,000원")
+                            //소비자 총 결제금액
+                            Text("\(purchaseInfo.payment)")
                                 .font(.title2)
                                 .fontWeight(.bold)
                             Text("\(bank) \(accountNum)")
@@ -106,7 +111,7 @@ struct PaymentView: View {
                             
                             /// 약관 동의 뷰와 현금영수증 설정 뷰가 위에서부터 차례로 불러와짐
                             ToSView()
-                            CashRecieptView()
+                            CashRecieptView(incomeDeduction: $incomeDeduction, cashReceiptNumber: $cashReceiptNumber, purchaseInfo: $purchaseInfo)
                         }
                     }
                 }
@@ -119,10 +124,11 @@ struct PaymentView: View {
             
             /// 누르면 결제완료 뷰로 이동하는 NavigationLink 생성
             NavigationLink(destination: {
-                PaymentCompleteView()
+                PaymentCompleteView(purchaseInfo: $purchaseInfo)
             }){
                 
                 /// NavigationLink이 보여지는 문구를 "결제하기"로 설정
+                /// 여기서 현재 PurchaseInfo를 파이어스토어에 전달.
                 Text("결제하기")
                     .foregroundColor(.white)
                     .font(.title3)
@@ -134,14 +140,18 @@ struct PaymentView: View {
                             .fill(Color.blue)
                             .frame(width: 380, height: 60)
                     }
+                    
             }
+          
             .padding(20)
         }
     }
 }
 
 struct PaymentView_Previews: PreviewProvider {
+    
     static var previews: some View {
-        PaymentView(purchaseInfo: PurchaseInfo(id: UUID().uuidString, userName: "박성민_1", userPhoneNumber: "010-XXXX-XXXX", depositorName: "박성민", recipient: Recipient(name: "박성민", phoneNumber: "010-XXXX-XXXX", adress: "서울시 중랑구 묵동 xxx-xxx", requestedTerm: "집 문앞에 놔주세요"), marketBasket: MarketBasket(id: UUID().uuidString, basketProducts: ["매직마우스", "애플워치", "에어팟맥스"]), payment: "150,000", cashReceipt: CashReceipt(id: UUID().uuidString, incomDeduction: "소득공제정보", cashReceiptNumber: "현금영수증번호"), bankName: "신한은행"))
+        
+        PaymentView(purchaseInfo: Binding.constant(PurchaseInfo(id: UUID().uuidString, userName: "박성민_1", userPhoneNumber: "010-XXXX-XXXX", depositorName: "박성민", recipient: Recipient(name: "박성민", phoneNumber: "010-XXXX-XXXX", adress: "서울시 중랑구 묵동 xxx-xxx", requestedTerm: "집 문앞에 놔주세요"), marketBasket: MarketBasket(id: UUID().uuidString, basketProducts: ["매직마우스", "애플워치", "에어팟맥스"]), payment: "150,000원", cashReceipt: CashReceipt(id: UUID().uuidString, incomDeduction: "소득공제정보", cashReceiptNumber: "현금영수증번호"), bankName: "신한은행")))
     }
 }
