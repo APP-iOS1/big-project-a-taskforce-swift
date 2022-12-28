@@ -17,6 +17,7 @@
 		63328227295ABBDE00265898 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63328226295ABBDE00265898 /* PaymentView.swift */; };
 		63793ED8295BCC7C005F0802 /* ToSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63793ED7295BCC7C005F0802 /* ToSView.swift */; };
 		63793EDA295BCCAD005F0802 /* CashRecieptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63793ED9295BCCAD005F0802 /* CashRecieptView.swift */; };
+		AD88F22A295C135500588FE8 /* PurchaseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD88F229295C135500588FE8 /* PurchaseInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +31,9 @@
 		63328226295ABBDE00265898 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		63793ED7295BCC7C005F0802 /* ToSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToSView.swift; sourceTree = "<group>"; };
 		63793ED9295BCCAD005F0802 /* CashRecieptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashRecieptView.swift; sourceTree = "<group>"; };
+
 		F4FAAB3E295C2AB20008F144 /* Payment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Payment.app; path = "/Users/gim-eung-gwan/big-project-a-taskforce-swift/Payment/build/Debug-iphoneos/Payment.app"; sourceTree = "<absolute>"; };
+		AD88F229295C135500588FE8 /* PurchaseInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				1678B7EA295BE67D00A44427 /* Bank.swift */,
+				AD88F229295C135500588FE8 /* PurchaseInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -56,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				63328215295AB9C200265898 /* Payment */,
+				AD88F228295C106400588FE8 /* Payment.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,11 +88,11 @@
 			isa = PBXGroup;
 			children = (
 				63328218295AB9C200265898 /* ContentView.swift */,
-				1678B7E1295AD5D700A44427 /* PaymentCompleteView.swift */,
 				63328224295ABAF200265898 /* ReadyToPayView.swift */,
 				63328226295ABBDE00265898 /* PaymentView.swift */,
 				63793ED7295BCC7C005F0802 /* ToSView.swift */,
 				63793ED9295BCCAD005F0802 /* CashRecieptView.swift */,
+				1678B7E1295AD5D700A44427 /* PaymentCompleteView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -166,6 +171,7 @@
 				63328217295AB9C200265898 /* PaymentApp.swift in Sources */,
 				1678B7E2295AD5D700A44427 /* PaymentCompleteView.swift in Sources */,
 				63328227295ABBDE00265898 /* PaymentView.swift in Sources */,
+				AD88F22A295C135500588FE8 /* PurchaseInfo.swift in Sources */,
 				63328225295ABAF200265898 /* ReadyToPayView.swift in Sources */,
 				63328217295AB9C200265898 /* PaymentApp.swift in Sources */,
 				1678B7EB295BE67D00A44427 /* Bank.swift in Sources */,

@@ -60,8 +60,8 @@ struct ToSView: View {
                     }
                 }
             }
-            Spacer()
-        }.padding()
+            Spacer()   
+        }.padding(.horizontal)
     }
 }
 

@@ -9,17 +9,16 @@ import SwiftUI
 
 struct CashRecieptView: View {
     @State private var isCheck: Bool = false
-    @State private var isCheckSo: Bool = true
-    @State private var isCheckJi: Bool = false
-    @State private var isCheckSub: Bool = false
-    @State private var incomeDeduction: String = "휴대폰번호"
-    @State var phoneNumber: String = ""
-    var incomDeduction: [String] = ["휴대폰번호", "사업자번호"]
-    
+    @State private var isCheckExpenditure: Bool = false
+    @Binding var incomeDeduction: String
+    @Binding var cashReceiptNumber: String
+    var incomDeductions: [String] = ["소득공제 번호(휴대폰 번호)", "지출증빙 번호(사업자 번호)"]
+    @Binding var purchaseInfo: PurchaseInfo
+
     
     var body: some View {
         
-        ScrollView {
+        VStack {
             HStack {
                 VStack(alignment: .leading ) {
                     HStack {
@@ -35,42 +34,30 @@ struct CashRecieptView: View {
             }
             
             if isCheck {
-                HStack {
-                    HStack {
-                        Button {
-                            isCheckSo = true
-                            isCheckJi = false
-                        } label: {
-                            Image(systemName: isCheckSo ? "checkmark.circle.fill" : "circle")
-                        }
-                        Text("소득공제")
-                    }
-                    HStack {
-                        Button {
-                            isCheckJi = true
-                            isCheckSo = false
-                        } label: {
-                            Image(systemName: isCheckJi ? "checkmark.circle.fill" : "circle")
-                        }
-                        Text("지출증빙")
-                    }
-                    Spacer()
-                }
                 VStack(alignment: .leading) {
                     Picker("incom deduction", selection: $incomeDeduction) {
-                        ForEach(incomDeduction, id: \.self) { item in
+                        ForEach(incomDeductions, id: \.self) { item in
                             Text("\(item)")
                         }
                     }
-                    TextField("", text: $phoneNumber).textFieldStyle(.roundedBorder)
+                    TextField("", text: $cashReceiptNumber).textFieldStyle(.roundedBorder)
+                        .keyboardType(.decimalPad)
+
                 }
                 
                 
                 HStack(alignment: .top) {
                     Button {
-                        isCheckSub.toggle()
+                        isCheckExpenditure.toggle()
+                        if isCheckExpenditure {
+                            purchaseInfo.cashReceipt.incomDeduction = incomeDeduction
+                            purchaseInfo.cashReceipt.cashReceiptNumber = cashReceiptNumber
+                        } else {
+                            purchaseInfo.cashReceipt.incomDeduction = ""
+                            purchaseInfo.cashReceipt.cashReceiptNumber = ""
+                        }
                     } label: {
-                        Image(systemName: isCheckSub ? "checkmark.square.fill" : "square")
+                        Image(systemName: isCheckExpenditure ? "checkmark.square.fill" : "square")
                     }
                     Text("현금영수증 발급을 위하여 휴대폰번호 또는 현금 영수증카드번호를 수집하며, 5년간 처리에 동의합니다.")
                 }
@@ -78,12 +65,12 @@ struct CashRecieptView: View {
             } else {
                 
             }
-        }.padding()
+        }.padding(.horizontal)
     }
 }
 
 struct CashRecieptView_Previews: PreviewProvider {
     static var previews: some View {
-        CashRecieptView()
+        CashRecieptView(incomeDeduction: Binding.constant("소득공제 번호(휴대폰 번호)"), cashReceiptNumber: Binding.constant("010XXXXXXXX"), purchaseInfo: Binding.constant(PurchaseInfo(id: UUID().uuidString, userName: "박성민_1", userPhoneNumber: "010-XXXX-XXXX", depositorName: "박성민", recipient: Recipient(name: "박성민", phoneNumber: "010-XXXX-XXXX", adress: "서울시 중랑구 묵동 xxx-xxx", requestedTerm: "집 문앞에 놔주세요"), marketBasket: MarketBasket(id: UUID().uuidString, basketProducts: ["매직마우스", "애플워치", "에어팟맥스"]), payment: "150,000원", cashReceipt: CashReceipt(id: UUID().uuidString, incomDeduction: "소득공제정보", cashReceiptNumber: "현금영수증번호"), bankName: "신한은행")))
     }
 }
