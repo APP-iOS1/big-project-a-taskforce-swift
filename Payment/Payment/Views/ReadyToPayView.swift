@@ -11,6 +11,9 @@ import SwiftUI
 /// 결제화면으로 가기 전 장바구니 페이지
 /// 버튼을 통해 결제하기 페이지로 이동
 struct ReadyToPayView: View {
+    
+    var purchaseInfo: PurchaseInfo = PurchaseInfo(id: UUID().uuidString, userName: "박성민_1", userPhoneNumber: "010-XXXX-XXXX", depositorName: "박성민", recipient: Recipient(name: "박성민", phoneNumber: "010-XXXX-XXXX", adress: "서울시 중랑구 묵동 xxx-xxx", requestedTerm: "집 문앞에 놔주세요"), marketBasket: MarketBasket(id: UUID().uuidString, basketProducts: ["매직마우스", "애플워치", "에어팟맥스"]), payment: "150,000", cashReceipt: "XXX-XXX-XXXX", bankName: "")
+    
     var body: some View {
         VStack {
             Text("배송지, 이름, 전화번호, 주소, 배송시 요청사항")
