@@ -24,81 +24,83 @@ struct PaymentView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                Button(action: {
-                    btnAppear.toggle()
-                    textAppear = false
-                }){
-                    HStack {
-                        Text("\(bank)")
-                            .font(.headline)
-                            .foregroundColor(.gray)
-                            .background {
-                                Rectangle()
-                                    .fill(Color.white)
-                                    .frame(width: 370, height: 30)
-                                    .border(Color.gray, width: 1)
-                            }
-                        Image(systemName: "chevron.down")
-                            .foregroundColor(.gray)
-                    }
-                    .padding(.leading)
-                }
-                LazyVGrid(columns: columns, spacing: 20) {
-                    ForEach(banks, id:\.id) { item in
-                        Button(action: {
-                            bank = item.name
-                            accountNum = item.account
-                            btnAppear.toggle()
-                            textAppear = true
-                        }){
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 20)
-                                    .fill(Color.gray)
-                                VStack {
-                                    Image("\(item.bankImage)")
-                                        .resizable()
-                                        .frame(width: 40, height: 40)
-                                    Text("\(item.name)")
-                                        .font(.caption)
-                                        .foregroundColor(.black)
-                                }
-                                .padding()
-                            }
-                        }
-                    }
-                }
-                .padding(.horizontal)
-                .opacity(btnAppear ? 1 : 0)
-                
-                if textAppear {
-                    VStack {
-                        Text("55,000원")
-                            .font(.title2)
-                            .fontWeight(.bold)
-                        Text("\(bank) \(accountNum)")
-                        Text("예금주: 멋사전자")
-                        
-                        Spacer().frame(height: 100)
-                        
-                        
-                        NavigationLink(destination: {
-                            PaymentCompleteView()
-                        }){
-                            Text("결제하기")
-                                .foregroundColor(.white)
-                                .font(.title3)
-                                .fontWeight(.bold)
+            ScrollView {
+                VStack {
+                    Button(action: {
+                        btnAppear.toggle()
+                        textAppear = false
+                    }){
+                        HStack {
+                            Text("\(bank)")
+                                .font(.headline)
+                                .foregroundColor(.gray)
                                 .background {
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .fill(Color.purple)
-                                        .frame(width: 380, height: 60)
+                                    Rectangle()
+                                        .fill(Color.white)
+                                        .frame(width: 370, height: 30)
+                                        .border(Color.gray, width: 1)
                                 }
+                            Image(systemName: "chevron.down")
+                                .foregroundColor(.gray)
+                        }
+                        .padding(.leading)
+                    }
+                    LazyVGrid(columns: columns, spacing: 20) {
+                        ForEach(banks, id:\.id) { item in
+                            Button(action: {
+                                bank = item.name
+                                accountNum = item.account
+                                btnAppear.toggle()
+                                textAppear = true
+                            }){
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .fill(Color.gray)
+                                    VStack {
+                                        Image("\(item.bankImage)")
+                                            .resizable()
+                                            .frame(width: 40, height: 40)
+                                        Text("\(item.name)")
+                                            .font(.caption)
+                                            .foregroundColor(.black)
+                                    }
+                                    .padding()
+                                }
+                            }
+                        }
+                    }
+                    .padding(.horizontal)
+                    .opacity(btnAppear ? 1 : 0)
+                    
+                    if textAppear {
+                        VStack {
+                            Text("55,000원")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                            Text("\(bank) \(accountNum)")
+                            Text("예금주: 멋사전자")
+                            
+                            ToSView()
+                            CashRecieptView()
+                            
+                            NavigationLink(destination: {
+                                PaymentCompleteView()
+                            }){
+                                Text("결제하기")
+                                    .foregroundColor(.white)
+                                    .font(.title3)
+                                    .fontWeight(.bold)
+                                    .background {
+                                        RoundedRectangle(cornerRadius: 20)
+                                            .fill(Color.purple)
+                                            .frame(width: 380, height: 60)
+                                    }
+                            }
                         }
                     }
                 }
+                .navigationTitle("은행선택")
             }
-            .navigationTitle("은행선택")
         }
     }
 }
