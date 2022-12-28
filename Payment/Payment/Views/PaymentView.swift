@@ -199,7 +199,7 @@ struct PaymentView: View {
             
             /// 누르면 결제완료 뷰로 이동하는 NavigationLink 생성
             NavigationLink(destination: {
-                PaymentCompleteView(purchaseInfo: $purchaseInfo)
+                PaymentCompleteView(purchaseInfo: $purchaseInfo, isCashCheck: isCashCheck)
             }){
                 
                 /// NavigationLink이 보여지는 문구를 "결제하기"로 설정

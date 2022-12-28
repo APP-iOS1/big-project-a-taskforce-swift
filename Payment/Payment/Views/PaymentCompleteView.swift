@@ -10,7 +10,8 @@ import SwiftUI
 struct PaymentCompleteView: View {
     
     @Binding var purchaseInfo: PurchaseInfo
-
+    var isCashCheck: Bool
+    
     var body: some View {
         VStack {
             ZStack {
@@ -42,8 +43,11 @@ struct PaymentCompleteView: View {
                                         PaymentInfoView(keyInfo: "입금하실 금액", valueInfo: purchaseInfo.payment)
                                         PaymentInfoView(keyInfo: "예금주 명", valueInfo: purchaseInfo.depositorName)
                                         PaymentInfoView(keyInfo: "입금 기한", valueInfo: "\(Date().plusAdding(hours: 3))")
-                                        PaymentInfoView(keyInfo: "소득공제정보", valueInfo: purchaseInfo.cashReceipt.incomDeduction)
-                                        PaymentInfoView(keyInfo: "현금영수증번호", valueInfo: purchaseInfo.cashReceipt.cashReceiptNumber)
+                                        
+                                        if isCashCheck {
+                                            PaymentInfoView(keyInfo: "소득공제정보", valueInfo: purchaseInfo.cashReceipt.incomDeduction)
+                                            PaymentInfoView(keyInfo: "현금영수증번호", valueInfo: purchaseInfo.cashReceipt.cashReceiptNumber)
+                                        }
                                     }
                                 }
                                 Spacer()
@@ -104,8 +108,8 @@ extension Date {
 let startTime = Date.now
 let endTime = startTime.adding(hours: 3)
 
-struct PaymentCompleteView_Previews: PreviewProvider {
-    static var previews: some View {
-        PaymentCompleteView(purchaseInfo: Binding.constant(PurchaseInfo(id: UUID().uuidString, userName: "박성민_1", userPhoneNumber: "010-XXXX-XXXX", depositorName: "박성민", recipient: Recipient(name: "박성민", phoneNumber: "010-XXXX-XXXX", adress: "서울시 중랑구 묵동 xxx-xxx", requestedTerm: "집 문앞에 놔주세요"), marketBasket: MarketBasket(id: UUID().uuidString, basketProducts: ["매직마우스", "애플워치", "에어팟맥스"]), payment: "150,000원", cashReceipt: CashReceipt(id: UUID().uuidString, incomDeduction: "소득공제정보", cashReceiptNumber: "현금영수증번호"), bankName: "신한은행")))
-    }
-}
+//struct PaymentCompleteView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PaymentCompleteView(purchaseInfo: Binding.constant(PurchaseInfo(id: UUID().uuidString, userName: "박성민_1", userPhoneNumber: "010-XXXX-XXXX", depositorName: "박성민", recipient: Recipient(name: "박성민", phoneNumber: "010-XXXX-XXXX", adress: "서울시 중랑구 묵동 xxx-xxx", requestedTerm: "집 문앞에 놔주세요"), marketBasket: MarketBasket(id: UUID().uuidString, basketProducts: ["매직마우스", "애플워치", "에어팟맥스"]), payment: "150,000원", cashReceipt: CashReceipt(id: UUID().uuidString, incomDeduction: "소득공제정보", cashReceiptNumber: "현금영수증번호"), bankName: "신한은행")))
+//    }
+//}
