@@ -11,6 +11,11 @@
 		63328217295AB9C200265898 /* PaymentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63328216295AB9C200265898 /* PaymentApp.swift */; };
 		63328219295AB9C200265898 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63328218295AB9C200265898 /* ContentView.swift */; };
 		6332821E295AB9C300265898 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6332821D295AB9C300265898 /* Preview Assets.xcassets */; };
+		63328225295ABAF200265898 /* ReadyToPayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63328224295ABAF200265898 /* ReadyToPayView.swift */; };
+		63328227295ABBDE00265898 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63328226295ABBDE00265898 /* PaymentView.swift */; };
+		6332822E295AC5CA00265898 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6332822D295AC5CA00265898 /* Bank.swift */; };
+		63793ED8295BCC7C005F0802 /* ToSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63793ED7295BCC7C005F0802 /* ToSView.swift */; };
+		63793EDA295BCCAD005F0802 /* CashRecieptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63793ED9295BCCAD005F0802 /* CashRecieptView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +24,11 @@
 		63328216295AB9C200265898 /* PaymentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentApp.swift; sourceTree = "<group>"; };
 		63328218295AB9C200265898 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6332821D295AB9C300265898 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		63328224295ABAF200265898 /* ReadyToPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyToPayView.swift; sourceTree = "<group>"; };
+		63328226295ABBDE00265898 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		6332822D295AC5CA00265898 /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
+		63793ED7295BCC7C005F0802 /* ToSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToSView.swift; sourceTree = "<group>"; };
+		63793ED9295BCCAD005F0802 /* CashRecieptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashRecieptView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +81,10 @@
 			children = (
 				63328218295AB9C200265898 /* ContentView.swift */,
 				1678B7E1295AD5D700A44427 /* PaymentCompleteView.swift */,
+				63328224295ABAF200265898 /* ReadyToPayView.swift */,
+				63328226295ABBDE00265898 /* PaymentView.swift */,
+				63793ED7295BCC7C005F0802 /* ToSView.swift */,
+				63793ED9295BCCAD005F0802 /* CashRecieptView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -147,6 +161,12 @@
 				63328219295AB9C200265898 /* ContentView.swift in Sources */,
 				63328217295AB9C200265898 /* PaymentApp.swift in Sources */,
 				1678B7E2295AD5D700A44427 /* PaymentCompleteView.swift in Sources */,
+				63328227295ABBDE00265898 /* PaymentView.swift in Sources */,
+				63328225295ABAF200265898 /* ReadyToPayView.swift in Sources */,
+				63328217295AB9C200265898 /* PaymentApp.swift in Sources */,
+				6332822E295AC5CA00265898 /* Bank.swift in Sources */,
+				63793EDA295BCCAD005F0802 /* CashRecieptView.swift in Sources */,
+				63793ED8295BCC7C005F0802 /* ToSView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
